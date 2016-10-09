@@ -1,9 +1,10 @@
+import os
 import random
 import time
 import slackclient
 
 BOT_ID = 'U2M6BHP4Y'
-TOKEN = 'xoxb-89215601168-17V6qQL1ezeCo3pbqX1ZfnQu'
+TOKEN = os.environ.get('TOKEN')
 
 
 # constants
@@ -34,6 +35,7 @@ def handle_command(command, channel):
     response = random.choice(responses)
     slack_client.api_call("chat.postMessage", channel=channel,
                           text=response, as_user=True)
+    print(command + ' --- ' + response)
 
 
 def parse_slack_output(slack_rtm_output):
