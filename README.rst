@@ -1,0 +1,1 @@
+Ask your stupid questions in Slack channel with @sacred_deer
