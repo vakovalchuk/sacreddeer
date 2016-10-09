@@ -3,7 +3,7 @@ import time
 import slackclient
 
 BOT_ID = 'U2M6BHP4Y'
-TOKEN = 'xoxb-89215601168-K70gYcOC7p3BntiogVNs58OL'
+TOKEN = 'xoxb-89215601168-17V6qQL1ezeCo3pbqX1ZfnQu'
 
 
 # constants
@@ -55,7 +55,7 @@ def parse_slack_output(slack_rtm_output):
 if __name__ == "__main__":
     READ_WEBSOCKET_DELAY = 1
     if slack_client.rtm_connect():
-        print("StarterBot connected and running!")
+        print("Sacred Deer connected and running!")
         while True:
             command, channel = parse_slack_output(slack_client.rtm_read())
             if command and channel:
