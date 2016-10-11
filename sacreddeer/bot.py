@@ -1,16 +1,15 @@
 import os
 import random
 import time
+
 import slackclient
 
 BOT_ID = 'U2M6BHP4Y'
 TOKEN = os.environ.get('TOKEN')
 
 
-# constants
 AT_BOT = "<@" + BOT_ID + ">"
 
-# instantiate Slack & Twilio clients
 slack_client = slackclient.SlackClient(TOKEN)
 
 
@@ -22,12 +21,12 @@ def handle_command(command, channel):
     """
     responses = [
         "Yes",
-        "No",
+        "Niet",
         "It doesn't matter",
         "Chill, bro",
         "Tolsto",
         "Yes, but zrya",
-        "Never",
+        "Nein! Nein! Nein!!!",
         "100%",
         "1 of 100",
         "Try again"
@@ -35,7 +34,7 @@ def handle_command(command, channel):
     response = random.choice(responses)
     slack_client.api_call("chat.postMessage", channel=channel,
                           text=response, as_user=True)
-    print(command + ' --- ' + response)
+    print(time.strftime('%d-%m-%Y %H:%M.%S')+ ' ' + command + ' --- ' + response)
 
 
 def parse_slack_output(slack_rtm_output):
